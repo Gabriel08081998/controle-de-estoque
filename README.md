@@ -1,5 +1,5 @@
 # controle-de-estoque
-O seu projeto é um sistema de gerenciamento de estoque e vendas desenvolvido 
+Esse projeto é um sistema de gerenciamento de estoque e vendas desenvolvido 
 em Java usando o framework Spring Boot. Ele inclui funcionalidades para cadastrar 
 e consultar produtos, realizar vendas, e atualizar o estoque dos produtos. O sistema 
 utiliza um banco de dados MySQL para armazenar informações sobre produtos e vendas, e as 
