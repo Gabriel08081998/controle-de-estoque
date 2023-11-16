@@ -34,6 +34,4 @@ public class ProdutoController {
     public ResponseEntity<Optional<Produto>> consultarProdutosId(@PathVariable long id){
         return ResponseEntity.ok(produtoService.consultarEstoqueId(id));
     }
-
-
 }
