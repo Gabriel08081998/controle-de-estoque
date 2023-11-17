@@ -31,9 +31,13 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Produto>> consultarProdutosId(@PathVariable long id){
-        return ResponseEntity.ok(produtoService.consultarEstoqueId(id));
+    public ResponseEntity<?> consultarProdutosId(@PathVariable long id){
+        //fazer um tratamento se nao existir
+        Optional<Produto> produto = produtoService.consultarEstoqueId(id);
+        if(produto.isPresent()){
+            return ResponseEntity.ok(produto.get());
+        }else{
+            return ResponseEntity.ok("Produto nao encontrado");
+        }
     }
-
-
 }
