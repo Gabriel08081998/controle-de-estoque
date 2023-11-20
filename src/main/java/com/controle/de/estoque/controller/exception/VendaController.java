@@ -17,7 +17,7 @@ public class VendaController {
     private VendaServiceImpl vendaServiceImpl;
 
     @PostMapping("/realizar")
-    public ResponseEntity<String> realizarVenda( @Valid @RequestBody VendaDTO vendaDTO){
+    public ResponseEntity<String> realizarVenda(@Valid @RequestBody VendaDTO vendaDTO) {
         // Chame o serviço de venda para realizar a venda
         vendaServiceImpl.realizarVenda(vendaDTO);
 
@@ -26,7 +26,7 @@ public class VendaController {
     }
 
     @PutMapping("/atualizarEstoque")
-    private void atualizacaoEstoque(@RequestParam long id,@RequestParam int quantidade){
+    private void atualizacaoEstoque(@RequestParam long id, @RequestParam int quantidade) {
         vendaServiceImpl.atualizacaoEstoque(id, quantidade);
     }
 
