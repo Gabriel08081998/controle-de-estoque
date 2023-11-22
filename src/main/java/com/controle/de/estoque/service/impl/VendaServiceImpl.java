@@ -10,15 +10,16 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VendaServiceImpl implements VendaService {
 
     @Autowired
-    private VendaRepository vendaRepository;
-    @Autowired
     private ProdutoRepository produtoRepository;
+
+    @Autowired
+    private VendaRepository vendaRepository;
 
     public void realizarVenda(VendaDTO vendaDTO) {
         //Verificar se o produto existe
@@ -34,24 +35,33 @@ public class VendaServiceImpl implements VendaService {
         BeanUtils.copyProperties(vendaDTO, venda);
         venda.setProduto(produto);
 
-        double valorTotal =  venda.getQuantidade() * produto.getValor();
+        double valorTotal = venda.getQuantidade() * produto.getValor();
         venda.setValorTotal(valorTotal);
 
         vendaRepository.save(venda);
 
         //atualizar estoque do produto
-        int novoEstoque = produto.getQuantidadeEstoque() - venda.getQuantidade() ;
+        int novoEstoque = produto.getQuantidadeEstoque() - venda.getQuantidade();
         produto.setQuantidadeEstoque(novoEstoque);
 
         produtoRepository.save(produto);
     }
 
     @Override
-    public List<Venda> atualizacaoEstoque(long id, int quantidade) {
-        return null;
+    public Produto atualizacaoEstoque(long id, int quantidade) {
+        Optional<Produto> produto = produtoRepository.findById(id);
+
+        if (produto.isPresent()) {
+            produto.get().setQuantidadeEstoque(quantidade);
+            return produtoRepository.save(produto.get());
+
+        } else {
+            throw new RuntimeException("Produto nao encontrado");
+        }
+
     }
 
-    private void SalvarPedido(Venda venda){
+    private void SalvarPedido(Venda venda) {
         vendaRepository.save(venda);
     }
 

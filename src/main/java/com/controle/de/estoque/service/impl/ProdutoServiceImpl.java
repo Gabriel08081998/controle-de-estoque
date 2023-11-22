@@ -17,13 +17,13 @@ public class ProdutoServiceImpl implements ProdutoService {
     private ProdutoRepository produtoRepository;
 
     @Override
-    public Iterable<Produto> buscarTodosCalcados() {
+    public Iterable<Produto> buscarTodosProdutos() {
         return produtoRepository.findAll();
     }
 
     @Override
-    public void cadastraCalcado(Produto produto) {
-        salvarcalcado(produto);
+    public void cadastraProduto(Produto produto) {
+        salvarProduto(produto);
 
     }
 
@@ -33,7 +33,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         Optional<Produto> produto = produtoRepository.findById(id);
         return produto;
     }
-    private void salvarcalcado(Produto produto){
+    public void salvarProduto(Produto produto){
         produtoRepository.save(produto);
     }
 

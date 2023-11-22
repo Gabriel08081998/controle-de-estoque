@@ -19,24 +19,30 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @GetMapping
-    public ResponseEntity<Iterable<Produto>> buscarTodosCalcados(){
-        return ResponseEntity.ok(produtoService.buscarTodosCalcados());
+    public ResponseEntity<Iterable<Produto>> buscarTodosCalcados() {
+        return ResponseEntity.ok(produtoService.buscarTodosProdutos());
     }
+
     @PostMapping
-    public  ResponseEntity<?> cadastraCalcado(@Valid @RequestBody ProdutoDTO produtoDTO){
-        Produto produto1 = new Produto();
-        BeanUtils.copyProperties(produtoDTO, produto1);
-        produtoService.cadastraCalcado(produto1);
-        return ResponseEntity.ok(produto1);
+    public ResponseEntity<?> cadastraCalcado(@Valid @RequestBody ProdutoDTO produtoDTO) {
+        try {
+            Produto produto1 = new Produto();
+            BeanUtils.copyProperties(produtoDTO, produto1);
+            produtoService.cadastraProduto(produto1);
+            return ResponseEntity.ok(produto1);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Já existe um produto com esses dados.");
+        }
+
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> consultarProdutosId(@PathVariable long id){
+    public ResponseEntity<?> consultarProdutosId(@PathVariable long id) {
         //fazer um tratamento se nao existir
         Optional<Produto> produto = produtoService.consultarEstoqueId(id);
-        if(produto.isPresent()){
+        if (produto.isPresent()) {
             return ResponseEntity.ok(produto.get());
-        }else{
+        } else {
             return ResponseEntity.ok("Produto nao encontrado");
         }
     }

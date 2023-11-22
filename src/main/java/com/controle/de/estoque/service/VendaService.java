@@ -2,12 +2,11 @@ package com.controle.de.estoque.service;
 
 import com.controle.de.estoque.model.Produto;
 import com.controle.de.estoque.model.Venda;
-import com.controle.de.estoque.view.VendaDTO;
 
-import java.util.List;
+import java.util.Optional;
 
 
 public interface VendaService {
 
-    public List<Venda> atualizacaoEstoque (long id, int quantidade);
+    public Produto atualizacaoEstoque (long id, int quantidade);
 }
