@@ -26,8 +26,8 @@ public class VendaController {
     }
 
     @PutMapping("/atualizarEstoque")
-    private void atualizacaoEstoque(@RequestParam long id, @RequestParam int quantidade) {
-        vendaServiceImpl.atualizacaoEstoque(id, quantidade);
+    public void atualizacaoEstoque(@Valid @RequestBody VendaDTO vendaDTO) {
+        vendaServiceImpl.atualizacaoEstoque(vendaDTO.getId(), vendaDTO.getQuantidade());
     }
 
 }

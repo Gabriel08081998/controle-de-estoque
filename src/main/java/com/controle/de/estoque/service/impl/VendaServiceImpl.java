@@ -17,8 +17,7 @@ public class VendaServiceImpl implements VendaService {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-    @Autowired
-    private VendaService vendaService;
+
     @Autowired
     private VendaRepository vendaRepository;
 
