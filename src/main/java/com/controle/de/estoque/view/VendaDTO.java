@@ -13,7 +13,7 @@ public class VendaDTO {
         private long id;
         @NotNull
         private int quantidade;
-        @NotNull
+
         private double valorTotal;
 
 }

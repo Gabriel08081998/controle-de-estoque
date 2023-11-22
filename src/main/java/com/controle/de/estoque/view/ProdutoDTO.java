@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class ProdutoDTO {
 
         @NotNull
-        private String nomeCalcado;
+        private String nomeProduto;
         @NotNull
         private String modelo;
         private double valor;
