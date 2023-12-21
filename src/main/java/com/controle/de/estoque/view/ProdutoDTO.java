@@ -9,13 +9,15 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class ProdutoDTO {
 
-        @NotNull
-        private String nomeProduto;
-        @NotNull
-        private String modelo;
-        private double valor;
-        @NotNull
-        private int quantidadeEstoque;
-        private String anoFabricacao;
+    @NotNull
+    private long id;
+    @NotNull
+    private String nomeProduto;
+    @NotNull
+    private String modelo;
+    private double valor;
+    @NotNull
+    private int quantidadeEstoque;
+    private String anoFabricacao;
 
 }
