@@ -1,8 +1,9 @@
-package com.controle.de.estoque.controller.exception;
+package com.controle.de.estoque.controller;
 
 
 import com.controle.de.estoque.service.impl.VendaServiceImpl;
 import com.controle.de.estoque.view.VendaDTO;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/vendas")
+@Api(tags = "Vendas", description = "API para operações relacionadas a vendas")
 public class VendaController {
 
     @Autowired

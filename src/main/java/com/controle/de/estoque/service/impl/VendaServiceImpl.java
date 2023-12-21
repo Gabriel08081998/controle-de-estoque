@@ -5,11 +5,13 @@ import com.controle.de.estoque.model.Venda;
 import com.controle.de.estoque.repository.ProdutoRepository;
 import com.controle.de.estoque.repository.VendaRepository;
 import com.controle.de.estoque.service.VendaService;
+import com.controle.de.estoque.view.ExceptionDTO;
 import com.controle.de.estoque.view.VendaDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -45,6 +47,26 @@ public class VendaServiceImpl implements VendaService {
         produto.setQuantidadeEstoque(novoEstoque);
 
         produtoRepository.save(produto);
+    }
+
+    @Transactional
+    public void excluirProdutoComCascade(Long id) {
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new ExceptionDTO.ProdutoNaoEncontradoException(id));
+
+        produtoRepository.delete(produto);
+    }
+
+    @Transactional
+    public void excluirProdutoComRemocaoManual(Long id) {
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(()-> new ExceptionDTO.ProdutoNaoEncontradoException(id));
+
+        if (produto.getNomeProduto() != null && !produto.getNomeProduto().isEmpty()){
+            throw new ExceptionDTO.VendasAssociadasException("Não é possível excluir o produto pois há vendas associadas.");
+        }
+        produtoRepository.delete(produto);
+
     }
 
     @Override
