@@ -2,13 +2,12 @@ package com.controle.de.estoque.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,6 +21,10 @@ public class Produto {
     private int quantidadeEstoque;
     private double valor;
     private String anoFabricacao;
+    private boolean ativo;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Venda> vendas;
 
 }
