@@ -34,7 +34,7 @@ O projeto é dividido em pacotes que representam as camadas da aplicação:
 - **Realizar Venda:** Endpoint para realizar uma venda, verificando a existência do produto e a quantidade em estoque.
 - **Atualizar Estoque:** Método para atualizar o estoque após uma venda, utilizando o ID da venda e a quantidade vendida.
 
-  ## Teclonogias
+## Tecnolonogias
 - **Spring Boot:** O projeto utiliza o framework Spring Boot para facilitar o desenvolvimento de aplicativos Java.
 
 - **Java:** A versão do Java usada é a 17.
