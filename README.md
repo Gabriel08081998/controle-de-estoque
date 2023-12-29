@@ -1,6 +1,6 @@
 # Gerenciador de Estoque
 
-Este é um projeto de Gerenciador de Estoque desenvolvido em Java com o framework Spring Boot. O sistema oferece funcionalidades básicas para o controle de produtos e vendas, permitindo o cadastro de produtos, consulta de estoque, realização de vendas e atualização do estoque após uma venda.
+Este é um projeto de Gerenciador de Estoque desenvolvido em Java com o framework Spring Boot. O sistema oferece funcionalidades para o controle de produtos e vendas, permitindo o cadastro de produtos, consulta de estoque, realização de vendas e atualização do estoque após uma venda.
 
 ## Estrutura do Projeto
 
