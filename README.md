@@ -34,6 +34,35 @@ O projeto é dividido em pacotes que representam as camadas da aplicação:
 - **Realizar Venda:** Endpoint para realizar uma venda, verificando a existência do produto e a quantidade em estoque.
 - **Atualizar Estoque:** Método para atualizar o estoque após uma venda, utilizando o ID da venda e a quantidade vendida.
 
+  ## Teclonogias
+**Spring Boot:** O projeto utiliza o framework Spring Boot para facilitar o desenvolvimento de aplicativos Java.
+
+**Java:** A versão do Java usada é a 17.
+
+**Spring Web Starter:** Uma dependência que fornece funcionalidades para o desenvolvimento de aplicativos da web usando o Spring MVC.
+
+**Spring Data JPA Starter:** Uma dependência que facilita o uso do Spring Data JPA para acesso a dados.
+
+**Validation API:** Uma dependência que fornece suporte para validação de dados.
+
+**Jettison:** Uma biblioteca para trabalhar com JSON em Java.
+
+**JsonPath:** Uma biblioteca para navegação e manipulação de documentos JSON.
+
+**Gson:** Uma biblioteca para serialização e desserialização de objetos JSON em Java.
+
+**MySQL Connector/J:** O driver JDBC para conexão com o banco de dados MySQL.
+
+**Lombok:** Uma biblioteca que simplifica a escrita de código Java, evitando a necessidade de escrever getters, setters, construtores, etc.
+
+**Springfox Swagger 2:** Uma dependência para integrar a geração de documentação Swagger à aplicação.
+
+**Spring Boot DevTools:** Uma dependência para facilitar o desenvolvimento, fornecendo recursos como reinicialização automática do aplicativo durante o desenvolvimento.
+
+**JUnit (parte do Spring Boot Starter Test):** Uma dependência para testes unitários.
+
+**XBean Reflect:** Uma biblioteca para reflexão de classes baseada em XML.
+
 ## Como Executar
 
 1. Certifique-se de ter o Java e o Maven instalados em seu ambiente.
